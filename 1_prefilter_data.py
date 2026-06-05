@@ -2,6 +2,7 @@ import zipfile
 import csv
 import io
 
+# working with the big 16GB file from AIS, reducing ir using filters
 INPUT_ZIP = 'aisdk-2021-12.zip' 
 OUTPUT_CSV = 'filtered_december_ais.csv'
 
