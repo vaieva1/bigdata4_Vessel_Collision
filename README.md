@@ -4,13 +4,13 @@
 
 The objective of this assignment is to evaluate the processing of large-scale temporal and spatial data. The task requires identifying two vessels that collided within a specified marine area (50-nautical-mile radius) from a massive dataset, eliminating extreme data noise, and visualizing their trajectories 10 minutes prior to and 10 minutes following the time of collision.
 
-*GitHub* repository – [https://github.com/vaieva1/bigdata4_Vessel_Collision](https://github.com/vaieva1/bigdata4_Vessel_Collision)
+**GitHub** repository – [https://github.com/vaieva1/bigdata4_Vessel_Collision](https://github.com/vaieva1/bigdata4_Vessel_Collision)
 
 ## **Input data**
 
 Dataset used: [Danish Maritime Authority AIS data](http://aisdata.ais.dk/).
 
-Timeframe used in the assignment: *December 1, 2021 – December 31, 2021*.
+Timeframe used in the assignment: **December 1, 2021 – December 31, 2021**.
 
 ❗**Note**: The raw dataset (approx. 16GB) is not included in this repository to maintain a lightweight environment and align with standard data engineering practices. 
 
@@ -79,16 +79,16 @@ df = df.filter(col("SOG") >= 4.0)
 ```
 This instantly removes anchored ships, safely docked vessels, and slow-speed transfers, ensuring we only evaluate active, higher-speed transits.
 
-### **2. The "ghost ping" (teleportation) filter**
+### **2. "Ghost ping" (teleportation) filter**
 Sometimes a ship's GPS glitches, firing a single ping into the Baltic Sea while the ship is physically in another country. So forced the system to verify that a ship had a sustained presence (at least 20 pings) inside our 50-nautical-mile radius before considering it a valid vessel for this analysis.
 
-### **3. The "convergence" physics (anti-convoy)**
+### **3. "Convergence" physics (anti-convoy)**
 For example tugboats towing barges will share the same exact coordinates for hours, so to filter out these safe convoys, I calculate `min_dist` and `max_dist` of an encounter within a 15-minute window. Also, required the ships to converge from a distance before hitting:
 ```python
 (col("max_dist") - col("min_dist") >= 0.5) 
 ```
 
-### **4. The "going dark" assumption**
+### **4. "Going dark" assumption**
 A serious-to-catastrophic collision could very potentially destroy a ship's transponder. This assumption decision is described in more detail in `REPORT.md` file. So "signal death" filter is implemented, requiring at least one ship to stop transmitting data immediately after the encounter:
 ```python
 window_time = Window.partitionBy("MMSI").orderBy("unix_time")
