@@ -2,7 +2,7 @@
 *.zip
 *.csv
 
-# Ignore Mac system files (if you are on a Mac)
+# Ignore Mac system files
 .DS_Store
 
 # Ignore Python cache
