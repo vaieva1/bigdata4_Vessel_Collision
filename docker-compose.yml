@@ -1,0 +1,11 @@
+#version: '3.8'
+#services:
+  #spark-app:
+  #  build: .
+ #   volumes:
+#      - .:/app
+services:
+  spark-app:
+    build: .
+    volumes:
+      - ./filtered_december_ais.csv:/app/filtered_december_ais.csv

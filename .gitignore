@@ -1,0 +1,10 @@
+# Ignore big data files
+*.zip
+*.csv
+
+# Ignore Mac system files (if you are on a Mac)
+.DS_Store
+
+# Ignore Python cache
+__pycache__/
+*.pyc
