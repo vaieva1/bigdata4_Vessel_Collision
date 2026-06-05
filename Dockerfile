@@ -6,15 +6,13 @@ RUN apt-get update && \
     apt-get install -y default-jre-headless && \
     apt-get clean
 
-# Set the working directory
+# Set the working directory, Install Py libraries, Put all project files into the container, Default command to run when container starts
 WORKDIR /app
 
-# Install Py libraries
 COPY requirements.txt .
+
 RUN pip install --no-cache-dir -r requirements.txt
 
-#all project files into the container
 COPY . .
 
-# Default command to run when container starts
 CMD ["python", "2_find_collision.py"]
