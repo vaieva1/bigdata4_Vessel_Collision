@@ -54,7 +54,7 @@ def generate_map():
     # Draw the star FIRST (zorder=3) so it sits in the background
     plt.plot(COLL_LON, COLL_LAT, marker='*', color='orange', markersize=25, label='COLLISION POINT', zorder=3)
 
-    # Draw the lines SECOND (zorder=5) so they sit ON TOP of the star
+    # formatting 1
     if not ship1.empty:
         plt.plot(ship1["Longitude"], ship1["Latitude"], 
                  color='blue', marker='o', markersize=4, linestyle='-', linewidth=2, alpha=0.9, label=f'Ship 1 (MMSI: {MMSI_1})', zorder=5)
@@ -63,7 +63,7 @@ def generate_map():
         plt.plot(ship2["Longitude"], ship2["Latitude"], 
                  color='red', marker='o', markersize=4, linestyle='-', linewidth=2, alpha=0.9, label=f'Ship 2 (MMSI: {MMSI_2})', zorder=5)
 
-    # Formatting
+    # formatting 2
     plt.title("Vessel Collision Trajectory (20-Minute Window) \n 13/12/2021 02:27:29", fontsize=16, fontweight='bold')
     plt.xlabel("Longitude", fontsize=12)
     plt.ylabel("Latitude", fontsize=12)
