@@ -1,9 +1,3 @@
-#version: '3.8'
-#services:
-  #spark-app:
-  #  build: .
- #   volumes:
-#      - .:/app
 services:
   spark-app:
     build: .
