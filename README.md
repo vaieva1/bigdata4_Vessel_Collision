@@ -4,7 +4,7 @@
 
 The objective of this assignment is to evaluate the processing of large-scale temporal and spatial data. The task requires identifying two vessels that collided within a specified marine area (50-nautical-mile radius) from a massive dataset, eliminating extreme data noise, and visualizing their trajectories 10 minutes prior to and 10 minutes following the time of collision.
 
-*GitHub* repository – [Insert your link here]
+*GitHub* repository – [https://github.com/vaieva1/bigdata4_Vessel_Collision](https://github.com/vaieva1/bigdata4_Vessel_Collision)
 
 ## **Input data**
 
